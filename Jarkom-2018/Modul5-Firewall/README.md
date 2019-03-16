@@ -67,7 +67,7 @@ Pada Modul kali ini kita akan mempelajari bagaimana **Packet-Filtering Firewall*
 
 ## **5. IPTables**
 
-![Struktur IPTables pada Komputer](/img/netfilter-iptables-diagram-a.jpg)
+![Struktur IPTables pada Komputer](img/netfilter-iptables-diagram-a.jpg)
 
 Iptables adalah suatu tools dalam sistem operasi linux yang berfungsi sebagai alat untuk melakukan penyaringan (filter) terhadap lalu lintas (traffic) data. Secara sederhana, iptables digambarkan sebagai pengatur lalu lintas data. Aturan-aturan lalu lintas pada iptables, berada dalam sebuah tabel, dimana ***table*** adalah sekelompok ***chain*** dan ***chain*** adalah sekelompok ***rules***. Pada *high-level* iptables, memungkinkan terdapat *multiple tables* dengan *multiple chains*. Secara *default*, iptables berjalan tanpa *rules* apapun.
 
@@ -77,7 +77,7 @@ Struktur kerja IPTables,
 
 dapat digambarkan dengan struktur seperti ini.
 
-![IPTables Structure](/img/iptables-table-chain-rule-structure.png)
+![IPTables Structure](img/iptables-table-chain-rule-structure.png)
 
 ### **5.1. Tables and Chains**
 
@@ -112,7 +112,7 @@ Table ini adalah tabel default pada iptables. Jadi, jika kita tidak mendefinisik
   Penjelasan:
   - ACCEPT semua paket keluar yang melewati firewall yang berasal dari 10.151.36.0/24
 
-![Filter Chain](/img/iptables-tutorial-input-forward-output.jpg)
+![Filter Chain](img/iptables-tutorial-input-forward-output.jpg)
 #### b. **NAT Table**
 
 NAT Table berfungsi untuk mentranslasikan jaringan lokal yang melewati firewall menuju jaringan luar. NAT Table memiliki *built-in chain*, yaitu :
@@ -132,7 +132,7 @@ Sebagai contoh, pada modul pengenalan UML kita telah menjalankan IP masquerading
    ```
     Rule diatas berarti, source address dari setiap paket yang keluar (`-o`) melalui `eth0` akan diubah menjadi IP dari `eth0` (`MASQUERADE`).
        
-![NAT Table](/img/nat-chains.gif)
+![NAT Table](img/nat-chains.gif)
 #### c. **Mangle Table**
 
 Mangle Table berfungsi untuk melakukan perubahan pada paket data. Perubahan yang dilakukan pada TCP header untuk memodifikasi QOS (*Quality of Service*) pada paket tersebut. Mangle Table memiliki *built-in chain*, yaitu :
@@ -145,7 +145,7 @@ Mangle Table berfungsi untuk melakukan perubahan pada paket data. Perubahan yang
 
 3 Table utama pada IPTables dapat digambarkan sebagai berikut.
 
-![Filter-NAT-Mangle Table](/img/iptables-filter-nat-mangle-tables.png)
+![Filter-NAT-Mangle Table](img/iptables-filter-nat-mangle-tables.png)
 
 ### **5.2. Rules**
 
@@ -302,4 +302,4 @@ http://www.academia.edu/8133772/Pengertian_Iptables_dan_Command_pada_Linux_Debia
 3. Server PIZZA tidak diperbolehkan menerima koneksi SSH
 4. Semua paket yang menuju subnet TEH SISRI akan diarahkan ke JASJUS
 
-![Topologi](/img/topologi.jpg)
+![Topologi](img/topologi.jpg)
