@@ -1,2 +1,5 @@
-# Modul-Jarkom-2018
-Modul mata kuliah jarkom 2018
+# Modul-Jarkom
+Kumpulan Modul mata kuliah jarkom
+
+
+1. [2018](Jarkom-2018)
