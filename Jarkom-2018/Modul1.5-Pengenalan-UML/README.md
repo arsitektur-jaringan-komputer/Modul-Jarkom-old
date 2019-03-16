@@ -12,7 +12,7 @@ Silahkan mendownload dari link berikut -> http://www.putty.org/ <br>
 Silahkan mendownload dari link berikut -> https://sourceforge.net/projects/xming/
 
 - Jalankan Xming terlebih dahulu kemudian jalankan PuTTY.
-![PuTTY](/images/1.PNG) <br>
+![PuTTY](images/1.PNG) <br>
 
 - Isikan **Host Name** dengan IP sesuai pembagian masing-masing kelas:<br>
 **Kelas A = 10.151.36.201 <br>
@@ -20,22 +20,22 @@ Kelas B = 10.151.36.202 <br>
 Kelas C = 10.151.36.203 <br>
 Kelas D = 10.151.36.204 <br>
 Kelas E = 10.151.36.205 <br>**
-![PuTTY IP](/images/2.png) <br>
+![PuTTY IP](images/2.png) <br>
 
 - Kemudian pilih tab **SSH** di bagian **Connection** dan pilih **X11**, lalu centang **Enable X11 forwarding**<br>
-![PuTTY X11](/images/3.PNG) <br>
+![PuTTY X11](images/3.PNG) <br>
 
 - Kemudian pilih Open. Jika muncul gambar seperti di bawah: <br>
-![PuTTY Warning](/images/4.PNG) <br>
+![PuTTY Warning](images/4.PNG) <br>
 Klik **Yes** maka kemudian akan tampil window untuk login.
-![PuTTY Login](/images/5.PNG) <br>
+![PuTTY Login](images/5.PNG) <br>
 
 - Login dengan username **[nama kelompok]** dan password **praktikum**. <br>
 Contoh: <br>
 **Username -> b2** <br>
 **Password -> praktikum** <br>
 Jika berhasil maka akan muncul gambar seperti di bawah ini:
-![PuTTY Login Success](/images/6.PNG)
+![PuTTY Login Success](images/6.PNG)
 
 
 ### 2. Untuk Linux
@@ -46,10 +46,10 @@ Contoh: `ssh -X b2@10.151.36.202`
 
 - Kemudian masukkan password kelompok kalian
 
-![PuTTY Linux](/images/7.png) <br>
+![PuTTY Linux](images/7.png) <br>
 
 ### Membuat Topologi Jaringan yang Akan Digunakan
-![Topologi](/images/8.PNG) <br>
+![Topologi](images/8.PNG) <br>
 1. Setelah login, buat file script dengan ekstensi **.sh** yang akan digunakan untuk menyimpan script membuat **router, switch,** dan **klien**. Misalkan kita membuat file bernama **topologi.sh**.
 
 
@@ -70,7 +70,7 @@ dengan topologi yang diminta.
 
 
 4. Untuk topologi sesuai yang ada pada gambar, maka sintaks untuk file **topologi.sh** adalah sebagai berikut:
-![Script Topologi](/images/9.PNG) <br>
+![Script Topologi](images/9.PNG) <br>
 
 ```shell
 # Switch
@@ -92,18 +92,18 @@ xterm -T KARI -e linux ubd0=KARI,jarkom umid=KARI eth0=daemon,,,switch1 mem=96M 
 
 
 5. Jalankan script **topologi.sh** dengan perintah `bash topologi.sh`
-![UML Login](/images/10.PNG) <br>
+![UML Login](images/10.PNG) <br>
 
 
 6. Setelah muncul gambar seperti di atas, login pada masing-masing UML dengan menggunakan **Username = root** dan **Password = praktikum**. <br>
-![UML Login Success](/images/11.PNG) <br>
+![UML Login Success](images/11.PNG) <br>
 
 
 7. Pada router **BAKSO** lakukan setting sysctl dengan mengetikkan perintah `nano /etc/sysctl.conf`
 
 
 8. Hilangkan tanda pagar (#) pada bagian `net.ipv4.ip_forward=1`
-![UML Sysctl](/images/12.PNG) <br>
+![UML Sysctl](images/12.PNG) <br>
 Lalu ketikka `sysctl -p` untuk mengaktifkan perubahan yang ada. Dengan mengaktifkan fungsi _**IP Forward**_ ini maka Linux nantinya dapat menentukan jalur mana yang dipilih untuk mencapai jaringan tujuan.
 
 
@@ -182,11 +182,11 @@ gateway 192.168.0.1
 
 
 11. Coba cek IP pada setiap UML dengan mengetikkan `ifconfig`. Jika sudah mendapatkan IP seperti gambar di bawah, maka setting IP yang kalian lakukan sudah benar.<br>
-![UML IP](/images/13.PNG) <br>
+![UML IP](images/13.PNG) <br>
 
 
 12. Topologi yang dibuat sudah bisa berjalan secara lokal, tetapi kita belum bisa mengakses jaringan keluar. Ketikkan **`iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16`** pada router BAKSO.
-![UML Nat](/images/14.PNG) <br>
+![UML Nat](images/14.PNG) <br>
 **Keterangan:**
 - **iptables:** iptables merupakan suatu tools dalam sistem operasi Linux yang berfungsi sebagai filter terhadap lalu lintas data. Dengan iptables inilah kita akan mengatur semua lalu lintas dalam komputer, baik yang masuk, keluar, maupun yang sekadar melewati komputer kita. Untuk penjelasan lebih lanjut nanti akan dibahas pada Modul 5.
 - **NAT (Network Address Translation):** Suatu metode penafsiran alamat jaringan yang digunakan untuk menghubungkan lebih dari satu komputer ke jaringan internet dengan menggunakan satu alamat IP.
@@ -195,7 +195,7 @@ gateway 192.168.0.1
 
 
 13. Coba tes di semua UML dengan melakukan ping ke jaringan luar. Sebagai contoh coba `ping google.com` untuk mengecek apakah setting yang dilakukan sudah benar atau belum.
-![UML Ping](/images/15.PNG) <br>
+![UML Ping](images/15.PNG) <br>
 
 
 14. Export proxy pada setiap UML dengan sintaks seperti di bawah ini: <br>
@@ -208,7 +208,7 @@ gateway 192.168.0.1
 
 
 16. Terakhir, untuk mematikan UML **JANGAN langsung diclose**. Ketikkan `halt` pada setiap UML untuk mematikannya. Alternatif lain adalah dengan membuat script dengan ekstensi **.sh** supaya mempermudah serta mempercepat kalian untuk mematikannya. Sebagai contoh buat file bernama **bye.sh** dan tuliskan sintaks seperti di bawah ini:
-![UML Bye](/images/16.PNG) <br>
+![UML Bye](images/16.PNG) <br>
 ```
 uml_mconsole BAKSO halt
 uml_mconsole PIZZA halt

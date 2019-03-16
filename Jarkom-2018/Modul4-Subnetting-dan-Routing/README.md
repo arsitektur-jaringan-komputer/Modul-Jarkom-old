@@ -30,7 +30,7 @@ Modul 4 kali ini akan membahas tentang ***Subnetting*** dan ***Routing***.
 - [LATIHAN!](#latihan)
 
 ## A. PENGENALAN
-![1](/assets/awal.PNG)
+![1](assets/awal.PNG)
 
 ### Istilah
 
@@ -62,7 +62,7 @@ IP Address (Versi 4)
 - Alamat IP (yang panjangnya 32 bit itu) dibagi menjadi 4 oktet (masing-masing oktet berisi 8 bit) dipisahkan dengan tanda titik.
 
 ### Subnet
-![1](/assets/subnet-cs.png)
+![1](assets/subnet-cs.png)
 
 ### Network ID, Broadcast Address, dan Available Hosts
 Jika suatu PC memiliki alamat 10.151.36.5/24, maka informasi yang dapat digali dari IP tersebut adalah:
@@ -90,17 +90,17 @@ Penyelesaian :
 #### Network ID
 Mencari Network ID (NID)
 
-![1](/assets/NID.PNG)
+![1](assets/NID.PNG)
 
 #### Broadcast Address
 Mencari Broadcast Address
 
-![1](/assets/BID.PNG)
+![1](assets/BID.PNG)
 
 #### Available Hosts
 Mencari rentang alamat IP
 
-![1](/assets/rentang.PNG)
+![1](assets/rentang.PNG)
 
 ### IP Publik dan IP Privat
 Alamat IP dibagi menjadi 2 jenis, yaitu :
@@ -115,7 +115,7 @@ Rentang IP Privat :
 Rentang IP Publik adalah selain rentang IP Privat di atas.
 
 ### Let’s Wrap and Warm Up!
-![1](/assets/latihan.PNG)
+![1](assets/latihan.PNG)
     
 **Mari Diskusi**
 
@@ -148,15 +148,15 @@ Class C | /24 | 256
 
 Contoh penerapan pembagian alamat IP dengan metode ***Classful*** sebagai berikut.
 
-![1](/assets/top1.PNG)
+![1](assets/top1.PNG)
 
 Anggap kita memiliki topologi jaringan seperti gambar di atas. Lalu, tentukan jumlah subnet yang ada di dalam topologi tersebut.
 
-![1](/assets/top2.PNG)
+![1](assets/top2.PNG)
 
 Terdapat 8 subnet di dalam topologi. Dengan menggunakan teknik classful setiap subnet akan memiliki netmask /24 karena semua subnet memiliki jumlah host di bawah 256. Sehingga pembagian IP yang memungkinkan untuk topologi di atas adalah sebagai berikut.
 
-![1](/assets/hasil.PNG)
+![1](assets/hasil.PNG)
 
 #### B. Classless
 
@@ -190,25 +190,25 @@ Berdasarkan total IP dan netmask yang dibutuhkan, maka kita dapat menggunakan ne
 
 **Langkah 2** - Subnet besar yang dibentuk memiliki NID **192.168.1.0** dengan netmask **/24**. Hitung pembagian IP berdasarkan NID dan netmask tersebut menggunakan pohon seperti gambar di bawah.
 
-![1](/assets/pohon_vlsm1.png)
+![1](assets/pohon_vlsm1.png)
 
 **Langkah 3** - Lakukan subnetting dengan menggunakan pohon tersebut untuk pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada.
 
-![1](/assets/pohon_vlsm2.png)
+![1](assets/pohon_vlsm2.png)
 
 Dari pohon dari pohon tersebut akan mendapat pembagian IP sebagai berikut.
 
-![1](/assets/TabelVLSM.PNG)
+![1](assets/TabelVLSM.PNG)
 
 ##### 2. CIDR (Classless Inter Domain Routing)
 
 Perhitungan pada teknik CIDR juga didasarkan pada jumlah komputer/ host yang ada di dalam subnet. Tetapi cara mendapatkan subnet besar tidak sama dengan VLSM. Penerapan teknik CIDR dapat dilakukan dengan langkah sebagai berikut.
 
 **Langkah 1** - Tentukan subnet yang ada dalam topologi dan lakukan *labelling* netmask terhadap masing-masing subnet. Contohnya dapat dilihat pada gambar berikut.
-![1](/assets/cidr1.png)
+![1](assets/cidr1.png)
 
 **Langkah 2** - Gabungkan subnet paling bawah di dalam topologi. Paling bawah berarti subnet yang paling jauh dari internet (gambar awan). Maka pada topologi yang digunakan kali ini, subnet yang dapat digabungkan adalah **A1** dengan **A2** dan subnet **A7** dengan **A8**. Subnet yang digabung tersebut akan membentuk sebuah subnet lebih besar dari subnet-subnet kecil yang ada di dalamnya.
-![2](/assets/cidr2.png)
+![2](assets/cidr2.png)
 
 Subnet **B1** merupakan hasil penggabungan dari subnet **A1** dan **A2**, Subnet **B2** merupakan hasil penggabungan dari subnet **A7** dan **A8**.
 
@@ -218,17 +218,17 @@ Perhatikan subnet **A1** dan **A2**. Subnet **A1** memiliki netmask /25, dan sub
 
 Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 topologi yang kita miliki.
 
-![3](/assets/cidr3.png)
+![3](assets/cidr3.png)
 
-![4](/assets/cidr4.png)
+![4](assets/cidr4.png)
 
-![5](/assets/cidr5.png)
+![5](assets/cidr5.png)
 
 **Langkah 3** - Dari proses penggabungan yang telah dilakukan, didapatkan sebuah subnet besar dengan netmask **/21**. Kali ini dapat menggunakan NID **192.168.0.0**, netmask **255.255.248.0**.
 
 **Langkah 4** - Hitung pembagian IP dengan pohon berdasarkan penggabungan subnet yang telah dilakukan.
 
-![6](/assets/CIDR6.PNG)
+![6](assets/CIDR6.PNG)
 
 > **Catatan**
 
@@ -236,7 +236,7 @@ Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 
 
 **Langkah 5** - Berdasarkan penghitungan, maka didapatkan pembagian IP sebagai berikut.
 
-![9](/assets/CIDR7.PNG)
+![9](assets/CIDR7.PNG)
 
 Jika kalian menggunakan CIDR maka netmask yang terbentuk akan menjadi lebih besar dibandingkan dengan menggunakan VLSM. Tetapi salah satu **keunggulan** teknik **CIDR** adalah ketika terdapat subnet baru yang ditambahkan dalam topologi, **tidak perlu melakukan penghitungan kembali** karena kemungkinan besar masih ada interval (*range*) IP yang tidak terpakai. Selain itu, teknik CIDR juga mengefisienkan *routing* karena umumnya tabel routing yang dimiliki lebih sederhana dibandingkan teknik VLSM.
 
@@ -291,7 +291,7 @@ Pada UML, buatlah topologi tersebut seperti yang telah diajarkan pada [modul pen
 
 Praktik kali ini akan menerapkan cara routing untuk teknik *subnetting* **VLSM** yang telah kita lakukan sebelumnya.
 
-![1](/assets/top2.PNG)
+![1](assets/top2.PNG)
 
 ![pohon routing](assets/pohon_vlsm2.png)
 
